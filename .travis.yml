@@ -6,17 +6,15 @@ services:
 language: node_js
 node_js:
   - "iojs"
-  - "6"
 
 before_install:
   - npm install
+  - npm install chai@3.2.0 chai-http@1.0.0 --save-dev
+  - npm install -g mocha@2.3.1
 
 install:
   - docker build -t thisisdavidbell/hellojs .
   - docker images
   - docker run -d -p 8081:8080 thisisdavidbell/hellojs
   - docker ps -a
-
-after_install:
-  - curl localhost:8080/hello
-
+  - curl http:/localhost:8080/hello
