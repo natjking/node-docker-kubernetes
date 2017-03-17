@@ -1,0 +1,22 @@
+sudo: required
+
+services:
+  - docker
+
+language: node_js
+node_js:
+  - "iojs"
+  - "6"
+
+before_install:
+  - npm install
+
+install:
+  - docker build -t thisisdavidbell/hellojs .
+  - docker images
+  - docker run -d -p 8081:8080 thisisdavidbell/hellojs
+  - docker ps -a
+
+after_install:
+  - curl localhost:8080/hello
+
