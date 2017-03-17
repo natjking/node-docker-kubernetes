@@ -17,4 +17,4 @@ install:
   - docker images
   - docker run -d -p 8081:8080 thisisdavidbell/hellojs
   - docker ps -a
-  - curl http:/localhost:8080/hello
+  - curl 'http://localhost:8080/hello'
