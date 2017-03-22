@@ -10,7 +10,7 @@ describe('hello', function() {
       .get('/hello')
       .end(function(err, res) {
          if(err) {
-           err.should.have.code('ECONNREFUSED')
+           expect(err.code).to.equal('ECONNREFUSED');
          } else {
            throw new Error("fail");        
          }
