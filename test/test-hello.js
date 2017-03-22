@@ -11,6 +11,7 @@ describe('hello', function() {
       .end(function(err, res) {
          if(err) {
            expect(err.code).to.equal('ECONNREFUSED');
+
          } else {
            throw new Error("fail");        
          }
