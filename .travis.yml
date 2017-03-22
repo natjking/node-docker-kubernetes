@@ -19,3 +19,4 @@ install:
   - docker ps -a
   - sleep 15
   - curl http://0.0.0.0:8081
+
