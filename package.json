@@ -4,7 +4,7 @@
   "description": "Simple example of dockerising a node app, then using kubernetes",
   "main": "index.js",
   "scripts": {
-    "test": "/home/travis/.nvm/versions/node/v6.10.0/lib/node_modules/mocha/bin/mocha",
+    "test": "/home/travis/.nvm/versions/node/v6.10.1/lib/node_modules/mocha/bin/mocha",
     "start": "node hello.js"
   },
   "repository": {
