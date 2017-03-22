@@ -10,7 +10,7 @@ describe('hello', function() {
       .get('/hello')
       .end(function(err, res) {
          if(err) {
-           expect(err.code).to.equal('ECONNREFUSED');
+           chai.expect(err.code).to.equal('ECONNREFUSED');
 
          } else {
            throw new Error("fail");        
