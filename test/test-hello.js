@@ -9,6 +9,9 @@ describe('hello', function() {
     chai.request('http://localhost:8080')
       .get('/hello')
       .end(function(err, res) {
+         if(err) {
+           console.log(err);
+         }
          res.should.not.have.status(200);
          done();
       });
