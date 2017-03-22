@@ -9,7 +9,7 @@ describe('hello', function() {
     chai.request('http://localhost:8080')
       .get('/hello')
       .end(function(err, res) {
-         res.should.have.status(200);
+         res.should.not.have.status(200);
          done();
       });
   });
@@ -17,7 +17,7 @@ describe('hello', function() {
     chai.request('http://localhost:8081')
       .get('/hello')
       .end(function(err, res) {
-         res.should.not.have.status(200);
+         res.should.have.status(200);
          done();
       });
   });
