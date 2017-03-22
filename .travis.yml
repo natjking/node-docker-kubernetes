@@ -9,8 +9,8 @@ node_js:
 
 before_install:
   - npm install
-  - npm install chai@3.2.0 chai-http@1.0.0 --save-dev
-  - npm install -g mocha@2.3.1
+  - npm install chai chai-http --save-dev
+  - npm install -g mocha
 
 install:
   - docker build -t thisisdavidbell/hellojs .
@@ -18,5 +18,5 @@ install:
   - docker run -d -p 8081:8080 thisisdavidbell/hellojs
   - docker ps -a
   - sleep 15
-  - curl http://0.0.0.0:8081
+  - curl http://localhost:8081
 
