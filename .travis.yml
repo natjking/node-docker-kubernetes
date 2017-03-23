@@ -13,18 +13,17 @@ before_install:
   - npm install -g mocha
 
 install:
-  - export REPO=natjking/arm
-  - docker build -t $REPO:$COMMIT .
+  - export REPO=natjking/hellojs
+  - docker build -t $REPO .
   - docker images
-  - docker run -d -p 8081:8080 thisisdavidbell/hellojs
+  - docker run -d -p 8081:8080 $REPO
   - docker ps -a
   - sleep 15
   - curl http://localhost:8081/hello
 
 after_success:
   - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-  - export REPO=natjking/arm
   - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
-  - docker tag $REPO:$COMMIT $REPO:$TAG
-  - docker tag $REPO:$COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
+  - docker tag $REPO $REPO:$TAG
+  - docker tag $REPO $REPO:travis-$TRAVIS_BUILD_NUMBER
   - docker push $REPO
