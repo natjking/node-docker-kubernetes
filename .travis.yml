@@ -13,7 +13,8 @@ before_install:
   - npm install -g mocha
 
 install:
-  - docker build -t thisisdavidbell/hellojs .
+  - export REPO=natjking/arm
+  - docker build -t $REPO:$COMMIT .
   - docker images
   - docker run -d -p 8081:8080 thisisdavidbell/hellojs
   - docker ps -a
